@@ -1,73 +1,138 @@
-# Welcome to your Lovable project
+# Aer - Minimalist Work Collection Website
 
-## Project info
+A polished single-page style website with sophisticated animations, built with React, Framer Motion, and Tailwind CSS. Features horizontal 3D page transitions, animated navbar underline, and a carefully choreographed load sequence.
 
-**URL**: https://lovable.dev/projects/d32b9be2-8f88-48d6-aa77-9ede7f3b2b44
+## Features
 
-## How can I edit this code?
+- **Single Viewport Design**: No vertical scrolling - everything fits within one viewport
+- **3D Page Transitions**: Horizontal rotation animations when navigating between pages
+- **Animated Navbar**: Sliding underline that smoothly moves between active navigation items
+- **Load Sequence**: Choreographed initial animation with staggered element appearances
+- **Micro-interactions**: Hover effects, button animations, and focus states
+- **Accessibility**: Semantic HTML, ARIA labels, and keyboard navigation support
+- **Reduced Motion**: Respects user's prefers-reduced-motion settings
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d32b9be2-8f88-48d6-aa77-9ede7f3b2b44) and start prompting.
+- Node.js (v16 or higher)
+- npm or yarn
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+```bash
+# Install dependencies
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── assets/
+│   └── hero-image.jpeg          # Main hero image
+├── components/
+│   ├── Navbar.tsx               # Navigation with animated underline
+│   ├── SidePanel.tsx            # Left metadata panel
+│   ├── BottomStrip.tsx          # Bottom events/news strip
+│   └── PageWrapper.tsx          # Page transition wrapper
+├── pages/
+│   ├── Home.tsx                 # Main landing page
+│   ├── Products.tsx             # Products page
+│   ├── About.tsx                # About page
+│   ├── Locations.tsx            # Locations page
+│   └── Cart.tsx                 # Shopping cart page
+├── lib/
+│   └── animations.ts            # Animation constants and variants
+├── App.tsx                      # Main app with routing logic
+└── index.css                    # Design system tokens
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Animation Configuration
 
-## What technologies are used for this project?
+All animation timings and easings are defined in `src/lib/animations.ts`:
 
-This project is built with:
+```typescript
+export const ANIMATION_CONFIG = {
+  LOAD_DELAY_START: 350,           // Initial delay before animations start
+  IMAGE_FADE_DURATION: 800,        // Hero image fade duration
+  ELEMENT_STAGGER: 120,            // Stagger between elements
+  ELEMENT_FADE_DURATION: 600,      // Individual element fade duration
+  UNDERLINE_DURATION: 450,         // Navbar underline animation
+  PAGE_TRANSITION_DURATION: 650,   // Page transition duration
+  PAGE_ROTATION_DEG: 12,           // 3D rotation angle
+  PAGE_TRANSLATE_X: 40,            // Horizontal translation distance
+  // ... more constants
+};
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+You can easily adjust these values to fine-tune the animations.
 
-## How can I deploy this project?
+## Design System
 
-Simply open [Lovable](https://lovable.dev/projects/d32b9be2-8f88-48d6-aa77-9ede7f3b2b44) and click on Share -> Publish.
+The design system is defined in `src/index.css` using HSL color values:
 
-## Can I connect a custom domain to my Lovable project?
+- `--background`: Main dark background
+- `--foreground`: Primary text color
+- `--primary`: Accent color (gold/amber)
+- `--text-secondary`: Secondary text
+- `--text-muted`: Muted text
 
-Yes, you can!
+All components use these semantic tokens for consistent theming.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Replacing Assets
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Hero Image
+
+To replace the hero image:
+
+1. Place your new image in `src/assets/`
+2. Update the import in `src/pages/Home.tsx`:
+
+```typescript
+import heroImage from "@/assets/your-new-image.jpeg";
+```
+
+The image should ideally be:
+- High resolution (at least 1920px wide)
+- Portrait or square aspect ratio
+- Dark or dramatic lighting to match the aesthetic
+
+## Technologies Used
+
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Framer Motion** - Animation library
+- **Tailwind CSS** - Utility-first styling
+- **Vite** - Build tool
+- **Lucide React** - Icon library
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Accessibility
+
+The website includes:
+- Semantic HTML elements (`<nav>`, `<main>`, `<aside>`)
+- ARIA labels and attributes
+- Keyboard navigation support
+- Focus-visible states
+- Reduced motion support
+
+## License
+
+This project is part of the Lovable platform.
+
+## Support
+
+For questions or issues, visit [Lovable Documentation](https://docs.lovable.dev/)
