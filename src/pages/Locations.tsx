@@ -12,7 +12,7 @@ export const Locations = () => {
   ];
 
   return (
-    <main className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gradient-dark-start to-gradient-dark-end">
+    <main className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gradient-start via-gradient-middle to-gradient-end">
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
