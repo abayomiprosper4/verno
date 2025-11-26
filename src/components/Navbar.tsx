@@ -30,7 +30,7 @@ export const Navbar = ({ activePath, onNavigate }: NavbarProps) => {
     >
       {/* Logo */}
       <div className="text-2xl font-bold text-foreground tracking-tight">
-        Aer
+         <img src="src/assets/revv-10-logo.png" alt="Revv 10 Logo" className="w-20 h-20" />
       </div>
 
       {/* Nav Links */}

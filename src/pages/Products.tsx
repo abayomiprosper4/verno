@@ -5,7 +5,9 @@ import { BottomStrip } from "@/components/BottomStrip";
 
 export const Products = () => {
   return (
-    <main className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gradient-start via-gradient-middle to-gradient-end">
+    <main className="relative w-full overflow-hidden bg-hero-bg-2 bg-cover bg-center h-screen">
+             {/* Background overlay */}
+  <div className="absolute inset-0 bg-black/60"></div>
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div

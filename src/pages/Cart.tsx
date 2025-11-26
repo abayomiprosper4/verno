@@ -28,7 +28,7 @@ export const Cart = () => {
             Your Cart
           </h1>
           <p className="text-lg text-text-secondary leading-relaxed">
-            Your cart is currently empty. Start shopping to add items to your collection.
+            Your cart is currently empty! Start shopping to add items to your collection.
           </p>
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
