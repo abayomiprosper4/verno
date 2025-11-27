@@ -10,6 +10,8 @@ import { Products } from "@/pages/Products";
 import { About } from "@/pages/About";
 import { Locations } from "@/pages/Locations";
 import { Cart } from "@/pages/Cart";
+import { Collections } from "@/pages/Collections";
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
@@ -18,23 +20,30 @@ const ROUTES = {
   "/products": Products,
   "/about": About,
   "/locations": Locations,
-  "/cart": Cart
+  "/cart": Cart,
+  "/collections": Collections
 } as const;
 
 const ROUTE_ORDER = ["/", "/products", "/about", "/locations", "/cart"];
 
-const App = () => {
-  const [currentPath, setCurrentPath] = useState("/");
+const AppContent = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState(location.pathname);
   const [direction, setDirection] = useState(0);
   const isThrottled = useRef(false);
   const touchStartX = useRef(0);
+
+  useEffect(() => {
+    setCurrentPath(location.pathname);
+  }, [location.pathname]);
 
   const handleNavigate = (newPath: string) => {
     if (newPath === currentPath) return;
     const currentIndex = ROUTE_ORDER.indexOf(currentPath);
     const newIndex = ROUTE_ORDER.indexOf(newPath);
     setDirection(newIndex > currentIndex ? 1 : -1);
-    setCurrentPath(newPath);
+    navigate(newPath);
   };
 
   // Prefers-reduced-motion support
@@ -108,20 +117,65 @@ const App = () => {
   const CurrentPage = ROUTES[currentPath as keyof typeof ROUTES] || Home;
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <div className="relative w-full h-screen overflow-hidden bg-background">
-          <Navbar activePath={currentPath} onNavigate={handleNavigate} />
-          
-          <PageWrapper pageKey={currentPath} direction={direction}>
-            <div className="-my-0">
-              <CurrentPage />
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <div className="relative w-full h-screen overflow-hidden bg-background">
+        <Navbar activePath={currentPath} onNavigate={handleNavigate} />
+        
+        <Routes>
+          <Route path="/" element={
+            <PageWrapper pageKey={currentPath} direction={direction}>
+              <div className="-my-0">
+                <Home />
+              </div>
+            </PageWrapper>
+          } />
+          <Route path="/products" element={
+            <PageWrapper pageKey={currentPath} direction={direction}>
+              <div className="-my-0">
+                <Products />
+              </div>
+            </PageWrapper>
+          } />
+          <Route path="/about" element={
+            <PageWrapper pageKey={currentPath} direction={direction}>
+              <div className="-my-0">
+                <About />
+              </div>
+            </PageWrapper>
+          } />
+          <Route path="/locations" element={
+            <PageWrapper pageKey={currentPath} direction={direction}>
+              <div className="-my-0">
+                <Locations />
+              </div>
+            </PageWrapper>
+          } />
+          <Route path="/cart" element={
+            <PageWrapper pageKey={currentPath} direction={direction}>
+              <div className="-my-0">
+                <Cart />
+              </div>
+            </PageWrapper>
+          } />
+          <Route path="/collections" element={
+            <div className="h-screen overflow-y-auto">
+              <Collections />
             </div>
-          </PageWrapper>
-        </div>
-      </TooltipProvider>
+          } />
+        </Routes>
+      </div>
+    </TooltipProvider>
+  );
+};
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <AppContent />
+      </Router>
     </QueryClientProvider>
   );
 };

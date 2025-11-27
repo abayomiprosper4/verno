@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import { fadeInUpVariant } from "@/lib/animations";
 import { SidePanel } from "@/components/SidePanel";
 import { BottomStrip } from "@/components/BottomStrip";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export const Products = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="relative w-full overflow-hidden bg-hero-bg-2 bg-cover bg-center h-screen">
              {/* Background overlay */}
@@ -23,13 +27,18 @@ export const Products = () => {
           <p className="text-lg text-text-secondary leading-relaxed">
             Explore our curated collection of minimalist bags and accessories. Each piece is thoughtfully designed to balance form and function for the modern professional.
           </p>
-          <motion.button
+          <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-8 px-8 py-3 bg-primary text-primary-foreground rounded text-sm font-medium transition-all"
           >
-            View Collection
-          </motion.button>
+            <Button 
+              size="lg"
+              onClick={() => navigate('/collections')}
+              className="mt-8"
+            >
+              View Collection
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
 
