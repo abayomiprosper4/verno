@@ -1,4 +1,4 @@
-# Aer - Minimalist Work Collection Website
+# Verno - Minimalist Work Collection Website
 
 A polished single-page style website with sophisticated animations, built with React, Framer Motion, and Tailwind CSS. Features horizontal 3D page transitions, animated navbar underline, and a carefully choreographed load sequence.
 
