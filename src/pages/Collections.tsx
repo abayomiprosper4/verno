@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import { fadeInUpVariant } from "@/lib/animations";
-import { SidePanel } from "@/components/SidePanel";
-import { BottomStrip } from "@/components/BottomStrip";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { products, collections, categories, getProductsByCollection, getProductsByCategory } from "@/data/products";
@@ -13,7 +11,7 @@ export const Collections = () => {
   const otherCollections = collections.filter(c => c.id !== "work");
 
   return (
-    <main className="relative w-full bg-background">
+    <main className="relative w-full bg-gradient-to-br from-slate-700 via-slate-800 to-slate-700">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-8 py-32">
         <motion.div
@@ -23,9 +21,12 @@ export const Collections = () => {
           custom={0}
           className="text-center max-w-5xl"
         >
-          <h1 className="text-7xl md:text-8xl font-bold text-foreground leading-tight mb-8">
-            The Work Collection
+          <div>
+          <h1 className="text-7xl md:text-9xl font-bold text-foreground leading-tight mb-8">
+            The Work Collection.
           </h1>
+          <p className="my-7 font-mono">Minimalist Accessories designed for modern professionals. The Work Collection - Dress with style and purpose.</p>
+          </div>
           
           {/* Featured Products Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
@@ -155,8 +156,6 @@ export const Collections = () => {
         </motion.div>
       </section>
 
-      <SidePanel number="/06" title="Collections" />
-      <BottomStrip />
     </main>
   );
 };

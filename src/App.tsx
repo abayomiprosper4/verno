@@ -50,7 +50,7 @@ const AppContent = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) {
-      document.documentElement.style.setProperty("--animation-duration", "0.01s");
+      document.documentElement.style.setProperty("--animation-duration", "0.05s");
     }
   }, []);
 
@@ -70,7 +70,7 @@ const AppContent = () => {
         }
 
         isThrottled.current = true;
-        setTimeout(() => (isThrottled.current = false), 300);
+        setTimeout(() => (isThrottled.current = false), 500);
       }
     };
 
