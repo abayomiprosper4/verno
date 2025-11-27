@@ -13,9 +13,9 @@ export default {
       },
     },
     extend: {
-            backgroundImage: {
-        'hero-bg': "url('src/assets/wiser-by-the-mile-1Frndjy7tkM-unsplash.jpg')",
-        'hero-bg-2': "url('src/assets/lucas-santos--m1jeEuFzL0-unsplash.jpg')",
+      backgroundImage: {
+        'hero-bg': "url('/wiser-by-the-mile-1Frndjy7tkM-unsplash.jpg')",
+        'hero-bg-2': "url('/lucas-santos--m1jeEuFzL0-unsplash.jpg')",
       },
       fontFamily: {
         orbitron: ['Orbitron', 'sans-serif'],
