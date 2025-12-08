@@ -14,34 +14,41 @@ export const Cart = () => {
           initial="hidden"
           animate="visible"
           custom={0}
-          className="text-center max-w-3xl px-8"
+          className="text-center max-w-3xl px-4 sm:px-6 md:px-8"
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="mb-8 flex justify-center"
+            className="mb-6 md:mb-8 flex justify-center"
           >
-            <ShoppingBag className="text-primary" size={64} />
+            <ShoppingBag className="text-primary" size={48} />
           </motion.div>
-          <h1 className="text-7xl font-bold text-foreground leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-4 md:mb-6">
             Your Cart
           </h1>
-          <p className="text-lg text-text-secondary leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed px-2">
             Your cart is currently empty! Start shopping to add items to your collection.
           </p>
           <motion.button
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-8 px-8 py-3 bg-primary text-primary-foreground rounded text-sm font-medium transition-all"
+            className="mt-6 md:mt-8 px-6 md:px-8 py-3 bg-primary text-primary-foreground rounded text-sm font-medium transition-all"
           >
             Start Shopping
           </motion.button>
         </motion.div>
       </div>
 
-      <SidePanel number="/05" title="Shopping Cart" />
-      <BottomStrip />
+      {/* Side Panel - Hidden on mobile */}
+      <div className="hidden md:block">
+        <SidePanel number="/05" title="Shopping Cart" />
+      </div>
+      
+      {/* Bottom Strip - Hidden on mobile */}
+      <div className="hidden md:block">
+        <BottomStrip />
+      </div>
     </main>
   );
 };

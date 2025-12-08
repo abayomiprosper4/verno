@@ -13,49 +13,51 @@ export const Collections = () => {
   return (
     <main className="relative w-full bg-gradient-to-br from-slate-700 via-slate-800 to-slate-700">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-8 py-32">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-20 sm:py-24 md:py-32">
         <motion.div
           variants={fadeInUpVariant}
           initial="hidden"
           animate="visible"
           custom={0}
-          className="text-center max-w-5xl"
+          className="text-center max-w-5xl w-full"
         >
           <div>
-          <h1 className="text-7xl md:text-9xl font-bold text-foreground leading-tight mb-8">
-            The Work Collection.
-          </h1>
-          <p className="my-7 font-mono">Minimalist Accessories designed for modern professionals. The Work Collection - Dress with style and purpose.</p>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-foreground leading-tight mb-4 sm:mb-6 md:mb-8">
+              The Work Collection.
+            </h1>
+            <p className="my-4 sm:my-5 md:my-7 font-mono text-sm sm:text-base px-2">
+              Minimalist Accessories designed for modern professionals. The Work Collection - Dress with style and purpose.
+            </p>
           </div>
           
           {/* Featured Products Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10 md:mb-12 max-w-4xl mx-auto">
             {workCollection.slice(0, 4).map((product, idx) => (
               <ProductCard key={product.id} product={product} index={idx} />
             ))}
           </div>
 
-          <Button size="lg" className="text-base px-8 py-6">
+          <Button size="lg" className="text-sm sm:text-base px-6 sm:px-8 py-4 sm:py-6">
             View Full Collection
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
         </motion.div>
       </section>
 
       {/* Other Collections */}
-      <section className="px-8 py-24 bg-card/30">
+      <section className="px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24 bg-card/30">
         <motion.h2
           variants={fadeInUpVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={0}
-          className="text-5xl font-bold text-foreground mb-16 text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-10 sm:mb-12 md:mb-16 text-center"
         >
           Explore Collections
         </motion.h2>
 
-        <div className="max-w-7xl mx-auto space-y-20">
+        <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 md:space-y-20">
           {otherCollections.map((collection, idx) => {
             const collectionProducts = getProductsByCollection(collection.id);
             return (
@@ -66,20 +68,20 @@ export const Collections = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
                 custom={idx}
-                className="space-y-6"
+                className="space-y-4 sm:space-y-6"
               >
-                <div className="flex justify-between items-end">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4">
                   <div>
-                    <h3 className="text-3xl font-bold text-foreground mb-2">{collection.name}</h3>
-                    <p className="text-text-secondary">{collection.description}</p>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{collection.name}</h3>
+                    <p className="text-sm sm:text-base text-text-secondary">{collection.description}</p>
                   </div>
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
                     View Full Collection
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                   {collectionProducts.slice(0, 4).map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
@@ -91,7 +93,7 @@ export const Collections = () => {
       </section>
 
       {/* Horizontal Category Lists */}
-      <section className="py-24 space-y-16">
+      <section className="py-16 sm:py-20 md:py-24 space-y-10 sm:space-y-12 md:space-y-16">
         {categories.map((category, idx) => {
           const categoryProducts = getProductsByCategory(category.id);
           if (categoryProducts.length === 0) return null;
@@ -104,26 +106,26 @@ export const Collections = () => {
               whileInView="visible"
               viewport={{ once: true }}
               custom={idx}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
             >
-              <div className="px-8 flex justify-between items-end">
+              <div className="px-4 sm:px-6 md:px-8 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2">
                 <div>
-                  <h3 className="text-3xl font-bold text-foreground mb-2">{category.name}</h3>
-                  <p className="text-text-secondary">{category.description}</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-1 sm:mb-2">{category.name}</h3>
+                  <p className="text-sm sm:text-base text-text-secondary">{category.description}</p>
                 </div>
               </div>
 
               <ScrollArea className="w-full whitespace-nowrap">
-                <div className="flex gap-4 px-8 pb-4">
+                <div className="flex gap-3 sm:gap-4 px-4 sm:px-6 md:px-8 pb-4">
                   {categoryProducts.map((product) => (
-                    <div key={product.id} className="inline-block w-64">
+                    <div key={product.id} className="inline-block w-48 sm:w-56 md:w-64">
                       <ProductCard product={product} horizontal />
                     </div>
                   ))}
-                  <div className="inline-flex items-center justify-center w-64 h-80 bg-card/50 rounded-lg border border-border hover:border-primary transition-colors cursor-pointer group">
+                  <div className="inline-flex items-center justify-center w-48 sm:w-56 md:w-64 h-64 sm:h-72 md:h-80 bg-card/50 rounded-lg border border-border hover:border-primary transition-colors cursor-pointer group">
                     <div className="text-center">
-                      <p className="text-lg font-medium text-foreground mb-2">See More</p>
-                      <ArrowRight className="mx-auto h-6 w-6 text-primary group-hover:translate-x-1 transition-transform" />
+                      <p className="text-base sm:text-lg font-medium text-foreground mb-2">See More</p>
+                      <ArrowRight className="mx-auto h-5 w-5 sm:h-6 sm:w-6 text-primary group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
@@ -135,7 +137,7 @@ export const Collections = () => {
       </section>
 
       {/* All Items CTA */}
-      <section className="py-24 px-8 text-center bg-card/30">
+      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 text-center bg-card/30">
         <motion.div
           variants={fadeInUpVariant}
           initial="hidden"
@@ -143,15 +145,15 @@ export const Collections = () => {
           viewport={{ once: true }}
           className="max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 sm:mb-6">
             Browse Everything
           </h2>
-          <p className="text-text-secondary mb-8 text-lg">
+          <p className="text-sm sm:text-base md:text-lg text-text-secondary mb-6 sm:mb-8">
             Explore our complete catalog of minimalist bags and accessories
           </p>
-          <Button size="lg" variant="outline" className="text-base px-12 py-6">
+          <Button size="lg" variant="outline" className="text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-6">
             View All Items
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
         </motion.div>
       </section>
@@ -179,7 +181,7 @@ const ProductCard = ({ product, index = 0, horizontal = false }: ProductCardProp
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`relative overflow-hidden rounded-lg bg-card ${horizontal ? 'h-80' : 'aspect-square'}`}>
+      <div className={`relative overflow-hidden rounded-lg bg-card ${horizontal ? 'h-64 sm:h-72 md:h-80' : 'aspect-square'}`}>
         <motion.img
           src={product.image}
           alt={product.name}
@@ -196,12 +198,12 @@ const ProductCard = ({ product, index = 0, horizontal = false }: ProductCardProp
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+          className="absolute inset-0 flex flex-col items-center justify-center text-center px-2 sm:px-4"
         >
-          <h4 className="text-xl font-semibold text-foreground mb-2">
+          <h4 className="text-base sm:text-lg md:text-xl font-semibold text-foreground mb-1 sm:mb-2">
             {product.name}
           </h4>
-          <p className="text-primary font-medium text-lg">
+          <p className="text-primary font-medium text-base sm:text-lg">
             ${product.price}
           </p>
         </motion.div>
