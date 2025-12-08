@@ -24,22 +24,22 @@ export const Navbar = ({ activePath, onNavigate }: NavbarProps) => {
       initial="hidden"
       animate="visible"
       custom={0}
-      className="fixed top-0 left-0 right-0 z-50 px-8 py-6 flex items-center justify-between"
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 flex items-center justify-between"
       role="navigation"
       aria-label="Main navigation"
     >
       {/* Logo */}
       <div className="text-2xl font-bold text-foreground tracking-tight">
-         <img src="src/assets/revv-10-logo.png" alt="Revv 10 Logo" className="w-20 h-20" />
+        <img src="src/assets/revv-10-logo.png" alt="Revv 10 Logo" className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20" />
       </div>
 
       {/* Nav Links */}
-      <div className="flex items-center gap-8 relative">
+      <div className="flex items-center gap-3 sm:gap-4 md:gap-8 relative">
         {NAV_ITEMS.map((item, index) => (
           <button
             key={item.path}
             onClick={() => onNavigate(item.path)}
-            className="relative text-sm text-foreground hover:text-primary transition-colors duration-200 py-2 group"
+            className="relative text-xs sm:text-sm text-foreground hover:text-primary transition-colors duration-200 py-1 sm:py-2 group"
             aria-current={activePath === item.path ? "page" : undefined}
           >
             <motion.span
@@ -66,10 +66,10 @@ export const Navbar = ({ activePath, onNavigate }: NavbarProps) => {
 
         {/* Search Icon */}
         <button 
-          className="text-foreground hover:text-primary transition-colors ml-4"
+          className="text-foreground hover:text-primary transition-colors ml-2 sm:ml-4"
           aria-label="Search"
         >
-          <Search size={18} />
+          <Search size={16} className="sm:w-[18px] sm:h-[18px]" />
         </button>
       </div>
     </motion.nav>
