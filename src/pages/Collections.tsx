@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { products, collections, categories, getProductsByCollection, getProductsByCategory } from "@/data/products";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { TypewriterText } from "@/components/TypewriterText";
 
 export const Collections = () => {
   const workCollection = getProductsByCollection("work");
@@ -23,20 +22,12 @@ export const Collections = () => {
           className="text-center max-w-5xl w-full"
         >
           <div>
-            <p className="text-sm sm:text-base md:text-lg font-mono text-text-secondary mb-2 sm:mb-3 md:mb-4 tracking-widest uppercase">
-              <TypewriterText text="Style upgraded" delay={300} speed={80} />
-            </p>
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-foreground leading-tight mb-4 sm:mb-6 md:mb-8">
-              <TypewriterText text="The Work Collection." delay={1200} speed={60} />
+              The Work Collection.
             </h1>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 3 }}
-              className="my-4 sm:my-5 md:my-7 font-mono text-sm sm:text-base px-2"
-            >
+            <p className="my-4 sm:my-5 md:my-7 font-mono text-sm sm:text-base px-2">
               Minimalist Accessories designed for modern professionals. The Work Collection - Dress with style and purpose.
-            </motion.p>
+            </p>
           </div>
           
           {/* Featured Products Grid */}
