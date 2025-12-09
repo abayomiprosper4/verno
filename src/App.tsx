@@ -45,6 +45,9 @@ const AppContent = () => {
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       if (isThrottled.current) return;
+      
+      // Disable navigation on Collections page
+      if (location.pathname === '/collections') return;
 
       const target = e.target as HTMLElement;
 
@@ -96,6 +99,9 @@ const AppContent = () => {
 
     const handleTouchEnd = (e: TouchEvent) => {
       if (isThrottled.current) return;
+      
+      // Disable navigation on Collections page
+      if (location.pathname === '/collections') return;
 
       const target = e.target as HTMLElement;
 
