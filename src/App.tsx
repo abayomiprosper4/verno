@@ -46,6 +46,30 @@ const AppContent = () => {
     const handleWheel = (e: WheelEvent) => {
       if (isThrottled.current) return;
 
+      const target = e.target as HTMLElement;
+
+      // Check if the scroll is happening within a scrollable element
+      const isScrollableElement = (el: HTMLElement | null): boolean => {
+        if (!el) return false;
+        const style = window.getComputedStyle(el);
+        const overflowX = style.overflowX;
+        const hasHorizontalScroll = el.scrollWidth > el.clientWidth;
+
+        if ((overflowX === 'auto' || overflowX === 'scroll') && hasHorizontalScroll) {
+          return true;
+        }
+
+        if (el.parentElement) {
+          return isScrollableElement(el.parentElement);
+        }
+        return false;
+      };
+
+      // Don't navigate if scrolling within a scrollable element
+      if (isScrollableElement(target)) {
+        return;
+      }
+
       const currentIndex = ROUTE_ORDER.indexOf(location.pathname);
 
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
@@ -72,6 +96,30 @@ const AppContent = () => {
 
     const handleTouchEnd = (e: TouchEvent) => {
       if (isThrottled.current) return;
+
+      const target = e.target as HTMLElement;
+
+      // Check if the swipe is happening within a scrollable element
+      const isScrollableElement = (el: HTMLElement | null): boolean => {
+        if (!el) return false;
+        const style = window.getComputedStyle(el);
+        const overflowX = style.overflowX;
+        const hasHorizontalScroll = el.scrollWidth > el.clientWidth;
+
+        if ((overflowX === 'auto' || overflowX === 'scroll') && hasHorizontalScroll) {
+          return true;
+        }
+
+        if (el.parentElement) {
+          return isScrollableElement(el.parentElement);
+        }
+        return false;
+      };
+
+      // Don't navigate if swiping within a scrollable element
+      if (isScrollableElement(target)) {
+        return;
+      }
 
       const touchEndX = e.changedTouches[0].clientX;
       const deltaX = touchStartX.current - touchEndX;
