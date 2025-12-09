@@ -10,9 +10,9 @@ export const Home = () => {
       {/* Background overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Hero Text - Centered */}
-      <div className="absolute left-1/2 top-1/3 md:top-1/4 -translate-x-1/2 -translate-y-1/2 z-10 text-center px-4 sm:px-6 w-full max-w-4xl">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-tight mb-2 text-center">
+      {/* Hero Text - Right aligned */}
+      <div className="absolute right-4 sm:right-8 md:right-16 lg:right-24 top-1/3 md:top-1/4 -translate-y-1/2 z-10 text-right px-4 sm:px-6 max-w-xl">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-tight mb-2 text-right">
           <TypewriterText text="Style" delay={300} speed={100} />
           <br />
           <span className="font-orbitron tracking-wide">
@@ -23,7 +23,7 @@ export const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 2 }}
-          className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-lg mx-auto px-4"
+          className="text-sm sm:text-base text-text-secondary leading-relaxed max-w-lg ml-auto px-4"
         >
           Introducing the Work Collection: a line of minimalist bags designed for a new generation, specifically for the modern professional.
         </motion.p>
