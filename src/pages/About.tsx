@@ -5,7 +5,7 @@ import { BottomStrip } from "@/components/BottomStrip";
 
 export const About = () => {
   return (
-    <main className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gradient-start via-gradient-middle to-gradient-end">
+    <main className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gray-100 via-gray-300 to-gray-500">
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
@@ -15,10 +15,10 @@ export const About = () => {
           custom={0}
           className="text-center max-w-3xl px-4 sm:px-6 md:px-8"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-4 md:mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black/75 leading-tight mb-4 md:mb-6">
             About Verno
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed px-2">
+          <p className="text-sm sm:text-base md:text-lg text-black/60 leading-relaxed px-2">
             We design products for the way you work today. Verno creates minimalist bags that bridge the gap between style and utility, built for those who move through their day with purpose.
           </p>
         </motion.div>

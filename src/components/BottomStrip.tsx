@@ -31,18 +31,18 @@ export const BottomStrip = ({
       variants={fadeInUpVariant}
       initial="hidden"
       animate="visible"
-      custom={3}
-      className="fixed bottom-0 left-0 right-0 z-20 px-8 py-3 flex items-end justify-between gap-8 bg-background/80 backdrop-blur-md border-t border-border/20"
+      custom={10}
+      className="fixed bottom-0 left-0 right-0 z-20 px-8 py-3 my-5 flex items-end justify-between gap-8 bg-background/80 backdrop-blur-md border-t border-border/20"
     >
       {/* Events Section */}
-      <div className="flex-1 space-y-4">
+      <div className="flex-1 space-y-3">
         <h3 className="text-xs tracking-widest text-text-muted uppercase">Events</h3>
         <div className="space-y-3">
           {eventsData.map((event, idx) => (
             <motion.div
               key={idx}
               whileHover={{ x: 4 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.6 }}
               className="group cursor-pointer"
             >
               <p className="text-sm text-foreground group-hover:text-primary transition-colors">
