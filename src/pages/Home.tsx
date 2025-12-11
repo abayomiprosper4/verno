@@ -10,11 +10,21 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { LucideArrowRightToLine } from "lucide-react";
+
+// Module-level flag that resets on full page reload but persists during SPA navigation
+let hasAnimatedThisSession = false;
 
 export const Home = () => {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
+  const [shouldAnimate] = useState(() => {
+    if (!hasAnimatedThisSession) {
+      hasAnimatedThisSession = true;
+      return true;
+    }
+    return false;
+  });
 
   return (
     <main className="w-full h-screen relative overflow-hidden">
@@ -57,17 +67,25 @@ export const Home = () => {
             text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white/80
           "
         >
-          <TypewriterText text="Style" delay={300} speed={200} />
+          {shouldAnimate ? (
+            <TypewriterText text="Style" delay={300} speed={200} />
+          ) : (
+            "Style"
+          )}
           <br />
           <span className="font-orbitron text-primary font-extrabold tracking-wide">
-            <TypewriterText text="Upgraded." delay={1800} speed={200} />
+            {shouldAnimate ? (
+              <TypewriterText text="Upgraded." delay={1800} speed={200} />
+            ) : (
+              "Upgraded."
+            )}
           </span>
         </h1>
 
         <motion.p
-          initial={{ opacity: 0 }}
+          initial={{ opacity: shouldAnimate ? 0 : 1 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 4.3 }}
+          transition={{ duration: 0.5, delay: shouldAnimate ? 4.3 : 0 }}
           className="
             text-base sm:text-lg text-white/60 leading-relaxed 
             max-w-md md:max-w-lg
