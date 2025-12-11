@@ -16,7 +16,7 @@ export const Home = () => {
       }}
     >
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/80 md:bg-white/70"></div>
+      <div className="absolute inset-0 bg-black/90 md:bg-black/90"></div>
 
       {/* Hero Content */}
       <div
@@ -38,7 +38,7 @@ export const Home = () => {
           <span className="font-orbitron text-primary font-extrabold tracking-wide">
             <TypewriterText text="Upgraded." delay={900} speed={100} />
           </span>
-        </h1>
+        </h1> 
 
         <motion.p
           initial={{ opacity: 0 }}
