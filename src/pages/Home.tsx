@@ -3,20 +3,43 @@ import { fadeInUpVariant } from "@/lib/animations";
 import { SidePanel } from "@/components/SidePanel";
 import { BottomStrip } from "@/components/BottomStrip";
 import { TypewriterText } from "@/components/TypewriterText";
+import { heroImages } from "@/data/products";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 export const Home = () => {
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
+
   return (
-    <main
-      className="
-        w-full h-screen relative overflow-hidden 
-        bg-cover bg-center bg-no-repeat
-      "
-      style={{
-        backgroundImage: `url(/wiser-by-the-mile-1Frndjy7tkM-unsplash.jpg)`,
-      }}
-    >
+    <main className="w-full h-screen relative overflow-hidden">
+      {/* Background Carousel */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Carousel
+          opts={{ loop: true }}
+          plugins={[plugin.current]}
+          className="w-full h-full"
+        >
+          <CarouselContent className="h-full -ml-0">
+            {heroImages.map((image) => (
+              <CarouselItem key={image.id} className="h-full pl-0">
+                <div
+                  className="w-full h-screen bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: `url(${image.src})` }}
+                  aria-label={image.alt}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/80 md:bg-white/70"></div>
+      <div className="absolute inset-0 bg-white/80 md:bg-white/70 pointer-events-none"></div>
 
       {/* Hero Content */}
       <div
