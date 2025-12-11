@@ -30,7 +30,9 @@ export const Navbar = ({ activePath, onNavigate }: NavbarProps) => {
     >
       {/* Logo */}
       <div className="text-2xl font-bold text-black tracking-tight">
-        <img src="src/assets/revv-10-logo.png" alt="Revv 10 Logo" className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20" />
+        <button onClick={() => onNavigate("/")}>
+          <img src="src/assets/revv-10-logo.png" alt="Revv 10 Logo" className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20" />
+        </button>
       </div>
 
       {/* Nav Links */}

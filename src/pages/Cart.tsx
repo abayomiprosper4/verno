@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import { fadeInUpVariant } from "@/lib/animations";
 import { SidePanel } from "@/components/SidePanel";
 import { ShoppingBag } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 
 export const Cart = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gradient-start via-gradient-middle to-gradient-end">
       {/* Content */}
@@ -32,6 +36,7 @@ export const Cart = () => {
           <motion.button
             whileHover={{ scale: 1.08, y: -2 }}
             whileTap={{ scale: 0.88 }}
+            onClick={() => navigate('/collections')}
             className="mt-6 md:mt-8 px-6 md:px-8 py-3 bg-primary text-primary-foreground rounded text-sm font-medium transition-all"
           >
             Start Shopping
