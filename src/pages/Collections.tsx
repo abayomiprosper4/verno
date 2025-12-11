@@ -23,14 +23,14 @@ export const Collections = () => {
           className="text-center max-w-5xl w-full"
         >
           <div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-foreground leading-tight mb-4 sm:mb-6 md:mb-8">
-              <TypewriterText text="The Work Collection." delay={300} speed={60} />
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-foreground leading-tight mb-4 sm:mb-6 md:mb-8">
+              <TypewriterText text="The Work Collection." delay={600} speed={90} />
             </h1>
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 2 }}
-              className="my-4 sm:my-5 md:my-7 font-mono text-sm sm:text-base px-2"
+              transition={{ duration: 0.8, delay: 3 }}
+              className="my-4 sm:my-5 md:my-7 font-sans tracking-widest text-xs sm:text-sm px-2"
             >
               Minimalist Accessories designed for modern professionals. The Work Collection - Dress with style and purpose.
             </motion.p>

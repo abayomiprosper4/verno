@@ -24,7 +24,7 @@ export const Navbar = ({ activePath, onNavigate }: NavbarProps) => {
       initial="hidden"
       animate="visible"
       custom={0}
-      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 flex items-center justify-between"
+      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-5 flex items-center justify-between"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -75,3 +75,4 @@ export const Navbar = ({ activePath, onNavigate }: NavbarProps) => {
     </motion.nav>
   );
 };
+ 
