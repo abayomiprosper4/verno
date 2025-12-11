@@ -19,7 +19,7 @@ export const Cart = () => {
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
             className="mb-6 md:mb-8 flex justify-center"
           >
             <ShoppingBag className="text-primary" size={48} />
@@ -31,8 +31,8 @@ export const Cart = () => {
             Your cart is currently empty! Start shopping to add items to your collection.
           </p>
           <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.88 }}
             className="mt-6 md:mt-8 px-6 md:px-8 py-3 bg-primary text-primary-foreground rounded text-sm font-medium transition-all"
           >
             Start Shopping

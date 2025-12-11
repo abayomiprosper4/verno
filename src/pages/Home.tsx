@@ -9,11 +9,11 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-// import Autoplay from "embla-carousel-autoplay";
+import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 
 export const Home = () => {
-  // const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
 
   return (
     <main className="w-full h-screen relative overflow-hidden">
@@ -21,7 +21,7 @@ export const Home = () => {
       <div className="absolute inset-0 pointer-events-none">
         <Carousel
           opts={{ loop: true }}
-          // plugins={[plugin.current]}
+          plugins={[plugin.current]}
           className="w-full h-full"
         >
           <CarouselContent className="h-full -ml-0">
@@ -39,7 +39,7 @@ export const Home = () => {
       </div>
 
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-black/90 md:bg-black/90 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black/60 md:bg-black/60 pointer-events-none"></div>
 
       {/* Hero Content */}
       <div
@@ -53,7 +53,7 @@ export const Home = () => {
         <h1
           className="
             font-bold leading-tight mb-4
-            text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-black/80
+            text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white/80
           "
         >
           <TypewriterText text="Style" delay={300} speed={100} />
@@ -61,14 +61,14 @@ export const Home = () => {
           <span className="font-orbitron text-primary font-extrabold tracking-wide">
             <TypewriterText text="Upgraded." delay={900} speed={100} />
           </span>
-        </h1> 
+        </h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 2 }}
           className="
-            text-base sm:text-lg text-black/60 leading-relaxed 
+            text-base sm:text-lg text-white/60 leading-relaxed 
             max-w-md md:max-w-lg
             md:ml-auto
           "

@@ -39,7 +39,7 @@ export const Navbar = ({ activePath, onNavigate }: NavbarProps) => {
           <button
             key={item.path}
             onClick={() => onNavigate(item.path)}
-            className="relative text-xs sm:text-sm font-bold text-gray-600 hover:text-primary transition-colors duration-200 py-1 sm:py-2 group"
+            className="relative text-xs sm:text-sm font-bold text-gray-400 hover:text-primary transition-colors duration-200 py-1 sm:py-2 group"
             aria-current={activePath === item.path ? "page" : undefined}
           >
             <motion.span
@@ -66,7 +66,7 @@ export const Navbar = ({ activePath, onNavigate }: NavbarProps) => {
 
         {/* Search Icon */}
         <button 
-          className="text-gray-600 hover:text-primary transition-colors ml-2 sm:ml-4"
+          className="text-gray-400 hover:text-primary transition-colors ml-2 sm:ml-4"
           aria-label="Search"
         >
           <Search size={16} className="sm:w-[18px] sm:h-[18px]" />
