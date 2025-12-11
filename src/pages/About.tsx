@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeInUpVariant } from "@/lib/animations";
 import { SidePanel } from "@/components/SidePanel";
-import { BottomStrip } from "@/components/BottomStrip";
 
 export const About = () => {
   return (
@@ -19,7 +18,7 @@ export const About = () => {
             About Verno
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-black/60 leading-relaxed px-2">
-            We design products for the way you work today. Verno creates minimalist bags that bridge the gap between style and utility, built for those who move through their day with purpose.
+            At Verno, We strive to design products tailored for the way you work today. We create minimalist accessories that bridge the gap between style and utility, built for those who move through their day with purpose.
           </p>
         </motion.div>
       </div>
@@ -27,11 +26,6 @@ export const About = () => {
       {/* Side Panel - Hidden on mobile */}
       <div className="hidden md:block">
         <SidePanel number="/03" title="Our Story" />
-      </div>
-      
-      {/* Bottom Strip - Hidden on mobile */}
-      <div className="hidden md:block">
-        <BottomStrip />
       </div>
     </main>
   );

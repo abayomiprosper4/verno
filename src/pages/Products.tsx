@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeInUpVariant } from "@/lib/animations";
 import { SidePanel } from "@/components/SidePanel";
-import { BottomStrip } from "@/components/BottomStrip";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +25,7 @@ export const Products = () => {
             Our Products
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed px-2">
-            Explore our curated collection of minimalist bags and accessories. Each piece is thoughtfully designed to balance form and function for the modern professional.
+            Explore our curated collection of bags and accessories. Each piece is thoughtfully designed to balance form and function for the modern professional.
           </p>
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
@@ -46,11 +45,6 @@ export const Products = () => {
       {/* Side Panel - Hidden on mobile */}
       <div className="hidden md:block">
         <SidePanel number="/02" title="Product Range" />
-      </div>
-      
-      {/* Bottom Strip - Hidden on mobile */}
-      <div className="hidden md:block">
-        <BottomStrip />
       </div>
     </main>
   );

@@ -50,7 +50,7 @@ export const heroImageVariant = {
     transition: {
       delay: ANIMATION_CONFIG.LOAD_DELAY_START / 1000,
       duration: ANIMATION_CONFIG.IMAGE_FADE_DURATION / 1000,
-      ease: [0.25, 0.1, 0.25, 1] as const, // easeOut curve
+      ease: [0.55, 0.1, 0.55, 1] as const, // easeOut curve
     }
   }
 };

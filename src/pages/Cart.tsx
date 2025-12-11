@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeInUpVariant } from "@/lib/animations";
 import { SidePanel } from "@/components/SidePanel";
-import { BottomStrip } from "@/components/BottomStrip";
 import { ShoppingBag } from "lucide-react";
 
 export const Cart = () => {
@@ -43,11 +42,6 @@ export const Cart = () => {
       {/* Side Panel - Hidden on mobile */}
       <div className="hidden md:block">
         <SidePanel number="/05" title="Shopping Cart" />
-      </div>
-      
-      {/* Bottom Strip - Hidden on mobile */}
-      <div className="hidden md:block">
-        <BottomStrip />
       </div>
     </main>
   );

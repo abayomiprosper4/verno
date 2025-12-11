@@ -57,25 +57,25 @@ export const Home = () => {
             text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white/80
           "
         >
-          <TypewriterText text="Style" delay={300} speed={100} />
+          <TypewriterText text="Style" delay={300} speed={200} />
           <br />
           <span className="font-orbitron text-primary font-extrabold tracking-wide">
-            <TypewriterText text="Upgraded." delay={900} speed={100} />
+            <TypewriterText text="Upgraded." delay={1800} speed={200} />
           </span>
         </h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 2 }}
+          transition={{ duration: 0.5, delay: 4.3 }}
           className="
             text-base sm:text-lg text-white/60 leading-relaxed 
             max-w-md md:max-w-lg
             md:ml-auto
           "
         >
-          Introducing the Work Collection: a line of minimalist bags designed
-          for a new generation, specifically for the modern professional.
+          Introducing the Work Collection: a fresh line of new generation minimalist bags, 
+          designed specifically for the modern professional.
           <p className="text-xs font-extralight mt-2">
             swipe to see more
             <LucideArrowRightToLine className="inline-block w-4 h-4 ml-1" />
