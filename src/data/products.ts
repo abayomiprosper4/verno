@@ -48,6 +48,13 @@ export const categories = [
   { id: "sustainable", name: "Sustainable", description: "Eco-conscious materials" },
 ];
 
+export const heroImages = [
+  { id: "1", src: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1920&h=1080&fit=crop", alt: "Elegant leather briefcase" },
+  { id: "2", src: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=1920&h=1080&fit=crop", alt: "Modern commuter backpack" },
+  { id: "3", src: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1920&h=1080&fit=crop", alt: "Minimalist tote bag" },
+  { id: "4", src: "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=1920&h=1080&fit=crop", alt: "Premium gym duffel" },
+];
+
 export const getProductsByCollection = (collectionId: string) => 
   products.filter(p => p.collection === collectionId);
 
