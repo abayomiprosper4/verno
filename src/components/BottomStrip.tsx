@@ -16,11 +16,11 @@ interface BottomStripProps {
 
 export const BottomStrip = ({ 
   eventsData = [
-    { title: "Pop-up @ Stevens Alan Furniture", date: "SF - Sat, August 12 / 2-6PM" },
-    { title: "Pop-up @ Stevens Alan Brooklyn", date: "NYC - Sat, August 13 / 2-6PM" }
+    { title: "Pop-up @ Stevens Alan Jewelery Set Reveal", date: "SF - Sat, August 12 / 2-6PM" },
+    { title: "Pop-up @ Marcus Zevens Brooklyn Showcase", date: "NYC - Sat, August 13 / 2-6PM" }
   ],
   newsData = { 
-    title: "A fresh take on our Active Collection.", 
+    title: "A fresh take on this Active Collection.", 
     subtitle: "Just in time for spring. Available in black.",
     date: "Read More"
   },
@@ -41,8 +41,8 @@ export const BottomStrip = ({
           {eventsData.map((event, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ x: 4 }}
-              transition={{ duration: 0.6 }}
+              whileHover={{ x: 20 }}
+              transition={{ duration: 0.2 }}
               className="group cursor-pointer"
             >
               <p className="text-sm text-foreground group-hover:text-primary transition-colors">
@@ -62,8 +62,8 @@ export const BottomStrip = ({
       {/* Center Image */}
       {centerImage && (
         <motion.div
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
+          whileHover={{ scale: 1.08 }}
+          transition={{ duration: 0.4 }}
           className="w-32 h-32 bg-muted rounded overflow-hidden"
         >
           <img 
@@ -78,7 +78,7 @@ export const BottomStrip = ({
       <div className="flex-1 space-y-4">
         <h3 className="text-xs tracking-widest text-text-muted uppercase">News</h3>
         <motion.div
-          whileHover={{ x: 4 }}
+          whileHover={{ x: 10 }}
           transition={{ duration: 0.2 }}
           className="cursor-pointer group"
         >
@@ -88,8 +88,9 @@ export const BottomStrip = ({
           {newsData.subtitle && (
             <p className="text-xs text-text-secondary mt-2">{newsData.subtitle}</p>
           )}
-          <p className="text-xs text-primary mt-3 underline">{newsData.date}</p>
+          
         </motion.div>
+        <button className="hover:scale-110 transition-all duration-200 "><p className="text-xs text-primary mt-3 underline">{newsData.date}</p></button>
       </div>
     </motion.div>
   );

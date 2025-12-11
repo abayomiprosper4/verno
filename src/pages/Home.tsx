@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
+import { LucideArrowRightToLine } from "lucide-react";
 
 export const Home = () => {
   const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: false }));
@@ -75,6 +76,10 @@ export const Home = () => {
         >
           Introducing the Work Collection: a line of minimalist bags designed
           for a new generation, specifically for the modern professional.
+          <p className="text-xs font-extralight mt-2">
+            swipe to see more
+            <LucideArrowRightToLine className="inline-block w-4 h-4 ml-1" />
+          </p>
         </motion.p>
       </div>
 
