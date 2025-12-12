@@ -4,7 +4,7 @@ import { SidePanel } from "@/components/SidePanel";
 
 export const About = () => {
   return (
-    <main className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gray-100 via-gray-200 to-gray-400">
+    <main className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400">
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div

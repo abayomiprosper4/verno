@@ -12,7 +12,7 @@ export const Collections = () => {
   const otherCollections = collections.filter(c => c.id !== "work");
 
   return (
-    <main className="relative w-full bg-gradient-to-br from-slate-700 via-slate-800 to-slate-700">
+    <main className="relative w-full bg-gradient-to-br from-slate-400 via-slate-800 to-slate-400">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-20 sm:py-24 md:py-32">
         <motion.div

@@ -31,7 +31,7 @@ export const BottomStrip = ({
       variants={fadeInUpVariant}
       initial="hidden"
       animate="visible"
-      custom={35}
+      custom={20}
       className="fixed bottom-0 left-0 right-0 z-20 px-8 py-3 my-5 flex items-end justify-between gap-8 bg-background/40 backdrop-blur-md border-t border-border/20"
     >
       {/* Events Section */}
