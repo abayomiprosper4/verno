@@ -46,14 +46,14 @@ export const About = () => {
             className="flex flex-col md:flex-row items-start justify-center gap-6 md:gap-0"
           >
             {/* Left Column - Philosophy & Highlights */}
-            <div className="flex-1 text-center md:text-right md:pr-8 lg:pr-12">
+            <div className="flex-1 text-center md:pr-8 lg:pr-12">
               <h2 className="text-xs sm:text-sm font-semibold text-black/40 uppercase tracking-widest mb-2">
                 Our Philosophy
               </h2>
-              <p className="text-xs sm:text-sm text-black/55 max-w-sm mx-auto md:ml-auto md:mr-0 leading-relaxed mb-4 md:mb-6">
+              <p className="text-xs sm:text-sm text-black/55 max-w-sm mx-auto leading-relaxed mb-4 md:mb-6">
                 Less noise, more intention. Every piece we design starts with a single question: does this add value to your daily rhythm?
               </p>
-              <div className="flex justify-center md:justify-end items-center gap-2 sm:gap-3">
+              <div className="flex justify-center items-center gap-2 sm:gap-3">
                 {highlights.map((item, index) => (
                   <div key={index} className="flex items-center gap-2 sm:gap-3">
                     <span className="text-[10px] sm:text-xs font-medium text-black/70 tracking-wide">
@@ -71,14 +71,14 @@ export const About = () => {
             <div className="hidden md:block w-px bg-black/15 self-stretch min-h-[120px]" />
 
             {/* Right Column - Craftsmanship & Process */}
-            <div className="flex-1 text-center md:text-left md:pl-8 lg:pl-12">
-              <p className="text-[10px] sm:text-xs text-black/45 italic max-w-sm mx-auto md:mr-auto md:ml-0 mb-4 md:mb-6">
+            <div className="flex-1 text-center md:pl-8 lg:pl-12">
+              <p className="text-[10px] sm:text-xs text-black/45 italic max-w-sm mx-auto mb-4 md:mb-6">
                 Every stitch, seam, and surface is considered — because craftsmanship is in the details.
               </p>
               <h2 className="text-xs sm:text-sm font-semibold text-black/40 uppercase tracking-widest mb-4">
                 How We Create
               </h2>
-              <div className="flex justify-center md:justify-start items-center gap-6 sm:gap-8">
+              <div className="flex justify-center items-center gap-6 sm:gap-8">
                 {processSteps.map((step, index) => (
                   <div key={index} className="flex flex-col items-center gap-1.5 sm:gap-2">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-black/15 flex items-center justify-center bg-white/30 backdrop-blur-sm">
