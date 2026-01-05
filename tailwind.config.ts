@@ -19,6 +19,7 @@ export default {
       },
       fontFamily: {
         orbitron: ['Orbitron', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
