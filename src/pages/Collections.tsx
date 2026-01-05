@@ -2,15 +2,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUpVariant } from "@/lib/animations";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { products, collections, categories, getProductsByCollection, getProductsByCategory } from "@/data/products";
+import { products, collections, categories, getProductsByCollection, getProductsByCategory, Product } from "@/data/products";
 import { useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ProductDetailPanel } from "@/components/ProductDetailPanel";
 
 export const Collections = () => {
   const [activeTab, setActiveTab] = useState<"trending" | "newest">("trending");
   const [featuredIndex, setFeaturedIndex] = useState(1);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
   const workCollection = getProductsByCollection("work");
   const travelCollection = getProductsByCollection("travel");
+
+  const handleProductClick = (product: Product) => {
+    setSelectedProduct(product);
+    setIsPanelOpen(true);
+  };
+
+  const handleClosePanel = () => {
+    setIsPanelOpen(false);
+  };
   
   const tabProducts = activeTab === "trending" 
     ? getProductsByCategory("trending") 
@@ -191,7 +203,7 @@ export const Collections = () => {
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
             >
               {tabProducts.slice(0, 8).map((product, idx) => (
-                <ProductCard key={product.id} product={product} index={idx} />
+                <ProductCard key={product.id} product={product} index={idx} onClick={() => handleProductClick(product)} />
               ))}
             </motion.div>
           </AnimatePresence>
@@ -300,7 +312,7 @@ export const Collections = () => {
 
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                     {collectionProducts.slice(0, 4).map((product, pIdx) => (
-                      <ProductCard key={product.id} product={product} index={pIdx} />
+                      <ProductCard key={product.id} product={product} index={pIdx} onClick={() => handleProductClick(product)} />
                     ))}
                   </div>
                 </motion.div>
@@ -334,16 +346,23 @@ export const Collections = () => {
           </Button>
         </motion.div>
       </section>
+      {/* Product Detail Panel */}
+      <ProductDetailPanel 
+        product={selectedProduct} 
+        isOpen={isPanelOpen} 
+        onClose={handleClosePanel} 
+      />
     </main>
   );
 };
 
 interface ProductCardProps {
-  product: any;
+  product: Product;
   index?: number;
+  onClick?: () => void;
 }
 
-const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
+const ProductCard = ({ product, index = 0, onClick }: ProductCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -355,6 +374,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       className="group cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
     >
       <div className="relative aspect-square overflow-hidden rounded-xl bg-card mb-3 sm:mb-4">
         <motion.img
