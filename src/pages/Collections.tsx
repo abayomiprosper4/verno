@@ -6,6 +6,7 @@ import { products, collections, categories, getProductsByCollection, getProducts
 import { useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { ProductDetailPanel } from "@/components/ProductDetailPanel";
+import Footer from "@/components/Footer";
 
 export const Collections = () => {
   const [activeTab, setActiveTab] = useState<"trending" | "newest">("trending");
@@ -346,6 +347,10 @@ export const Collections = () => {
           </Button>
         </motion.div>
       </section>
+
+      {/* Footer */}
+      <Footer />
+
       {/* Product Detail Panel */}
       <ProductDetailPanel 
         product={selectedProduct} 
