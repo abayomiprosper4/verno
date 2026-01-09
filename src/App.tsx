@@ -12,6 +12,7 @@ import { About } from "@/pages/About";
 import { Locations } from "@/pages/Locations";
 import { Cart } from "@/pages/Cart";
 import { Collections } from "@/pages/Collections";
+import { Contact } from "@/pages/Contact";
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 const queryClient = new QueryClient();
@@ -190,6 +191,11 @@ const AppContent = () => {
             <Route path="/collections" element={
               <div className="h-screen overflow-y-auto">
                 <Collections />
+              </div>
+            } />
+            <Route path="/contact" element={
+              <div className="h-screen overflow-y-auto">
+                <Contact />
               </div>
             } />
           </Routes>
